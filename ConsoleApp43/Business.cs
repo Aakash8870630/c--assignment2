@@ -8,9 +8,9 @@ namespace Assignment2
 {
     class Business : PropertyDetails
     {
-        private bool customerLobbies;
+        private bool needSofaset;
 
-        public bool CustomerLobbies { get => customerLobbies; set => customerLobbies = value; }
+        public bool SofaSet { get => needSofaset; set => needSofaset = value; }
         public override void AdditionalWork()
         {
             Console.WriteLine("Customer lobbies created");
@@ -18,7 +18,7 @@ namespace Assignment2
 
         public override string ToString()
         {
-            return string.Format("Business {0} and customer lobbies {1} hp", base.ToString(), customerLobbies ? "this" : "that");
+            return string.Format("\nBusiness {0} {1}", base.ToString(), needSofaset ? "with sofa set" : "without sofa set");
         }
     }
 }

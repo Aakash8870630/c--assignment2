@@ -20,6 +20,7 @@ namespace Assignment2
 
         public void Run()
         {
+            Console.WriteLine("Welocome");
             List<PropertyDetails> myList = new List<PropertyDetails>();
             string answer = string.Empty;
             do
@@ -28,7 +29,7 @@ namespace Assignment2
                 decimal houseAge;
                 do
                 {
-                    Console.Write("Enter house age: ");
+                    Console.Write("\nEnter house age: ");
                     ageOfHouse = Console.ReadLine();
                     houseAge = decimal.Parse(ageOfHouse);
                 } while (ageOfHouse.Length == 0);
@@ -64,7 +65,7 @@ namespace Assignment2
 
                 do
                 {
-                    Console.Write("Enter property owner[1 - House, 2 - Business, 3 - Farmer]: ");
+                    Console.Write("Enter property owner[1-House, 2-Business, 3-Farmer]: ");
                     stringOwner = Console.ReadLine();
                 } 
                 while (!(int.TryParse(stringOwner, out ownerType) && ownerType >= (int)HouseTypes.House && ownerType <= (int)HouseTypes.Farmers));
@@ -74,41 +75,41 @@ namespace Assignment2
                 {
                     case (int)HouseTypes.House:
                         theProperty = new House() { HouseAge = houseAge, HouseSize = houseSize, PaddockSize = paddockSize, CCNumber = ccNumber };
-                        string sunRoomDesign = string.Empty;
+                        string needHvac = string.Empty;
                         do
                         {
-                            Console.Write("do you need a design of sun room?[Y/N]");
-                            sunRoomDesign = Console.ReadLine();
-                        } while (sunRoomDesign.Length != 1 || (sunRoomDesign != "Y" && sunRoomDesign != "N"));
-                        ((House)theProperty).SunRoom = (sunRoomDesign == "Y") ? true : false;
+                            Console.Write("do you need HVAC system?[Y/N]");
+                            needHvac = Console.ReadLine();
+                        } while (needHvac.Length != 1 || (needHvac != "Y" && needHvac != "N"));
+                        ((House)theProperty).HVAC = (needHvac == "Y") ? true : false;
                         break;
 
                     case (int)HouseTypes.Business:
                         theProperty = new Business() { HouseAge = houseAge, HouseSize = houseSize, PaddockSize = paddockSize, CCNumber = ccNumber };
-                        string customerLobbiesDesign = string.Empty;
+                        string needSofaset = string.Empty;
                         do
                         {
-                            Console.Write("do you need a design of customer lobbies?[Y/N]");
-                            customerLobbiesDesign = Console.ReadLine();
-                        } while (customerLobbiesDesign.Length != 1 || (customerLobbiesDesign != "Y" && customerLobbiesDesign != "N"));
-                        ((Business)theProperty).CustomerLobbies = (customerLobbiesDesign == "Y") ? true : false;
+                            Console.Write("do you need sofaset?[Y/N]");
+                            needSofaset = Console.ReadLine();
+                        } while (needSofaset.Length != 1 || (needSofaset != "Y" && needSofaset != "N"));
+                        ((Business)theProperty).SofaSet = (needSofaset == "Y") ? true : false;
                         break;
 
                     case (int)HouseTypes.Farmers:
                         theProperty = new Farmers() { HouseAge = houseAge, HouseSize = houseSize, PaddockSize = paddockSize, CCNumber = ccNumber };
-                        string storageAreasDesign = string.Empty;
+                        string needGrainCoolers = string.Empty;
                         do
                         {
-                            Console.Write("do you need a design of grain storage areas?[Y/N]");
-                            storageAreasDesign = Console.ReadLine();
-                        } while (storageAreasDesign.Length != 1 || (storageAreasDesign != "Y" && storageAreasDesign != "N"));
-                        ((Farmers)theProperty).StorageAreas = (storageAreasDesign == "Y") ? true : false;
+                            Console.Write("do you need grain coolers?[Y/N]");
+                            needGrainCoolers = Console.ReadLine();
+                        } while (needGrainCoolers.Length != 1 || (needGrainCoolers != "Y" && needGrainCoolers != "N"));
+                        ((Farmers)theProperty).GrainCoolers = (needGrainCoolers == "Y") ? true : false;
                         break;
                 }
 
                 myList.Add(theProperty);
 
-                Console.Write("Do you want to enter more?[Y/N] ");
+                Console.Write("Do you want to enter more?[Y/N]: ");
                 answer = Console.ReadLine();
             } while (answer.Length == 0 || answer.Length > 1 || answer.ToUpper() == "Y" );
 

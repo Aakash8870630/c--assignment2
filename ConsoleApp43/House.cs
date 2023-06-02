@@ -4,17 +4,17 @@ namespace Assignment2
 {
     class House : PropertyDetails
     {
-        private bool sunRoom;
+        private bool needHvac; //HVAC is Heating, Ventilation, and Air Conditioning system
 
-        public bool SunRoom { get => sunRoom; set => sunRoom = value; }
+        public bool HVAC { get => needHvac; set => needHvac = value; }
         public override void AdditionalWork()
         {
-            Console.WriteLine("Sun room installed");
+            Console.WriteLine("Sun room created");
         }
 
         public override string ToString()
         {
-            return string.Format("House {0} and \nsun room {1}", base.ToString(), sunRoom ? "installed" : "not installed");
+            return string.Format("\nHouse {0} {1}", base.ToString(), needHvac ? "with HVAC system" : "without HVAC system");
         }
     }
 }
